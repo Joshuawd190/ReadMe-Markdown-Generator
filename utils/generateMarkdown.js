@@ -20,7 +20,7 @@ function renderLicenseBadge(license) {
 function renderLicenseSection(license) {
   switch (license) {
     case 'None':
-      return '';
+      return 'None';
     case 'MIT':
       return liscenses.MIT;
     case 'GNU GPLv3':
@@ -65,9 +65,19 @@ function renderContributing(data) {
   if (data.confirmContributing) {
     return `## Contributing
  
-    [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+  [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
   
  `;
+  } else {
+    return '';
+  }
+}
+function renderCredits(data) {
+  if (data.credits) {
+    return `## Credits
+
+    ${data.credits}
+    `;
   } else {
     return '';
   }
@@ -100,9 +110,8 @@ function generateMarkdown(data) {
   ${data.usage}
 
   ${renderScreenshot(data)}
-  ## Credits
   
-  ${data.credits}
+  ${renderCredits(data)}
   
   ## License
 
@@ -116,11 +125,11 @@ function generateMarkdown(data) {
 
   ${renderContributing(data)}
  
-  ##Questions
+##Questions
 
-    You can reach me here with any questions:
-    https://github.com/${data.github}
-    ${data.email}
+You can reach me here with any questions:
+https://github.com/${data.github}
+  ${data.email}
 
 `;
 }
