@@ -23,7 +23,7 @@ Run node index in the CLI and then answer the questions to generate a readme fil
 
 ![app demo](./assets/images/readmescreenshot.png)
 
-  ![Video Link](<iframe src="https://drive.google.com/file/d/19KEgmMHeC3r_9oNqVn6SYanfH7w6M1c7/preview" width="640" height="480"></iframe>)
+  ![Video Link](https://drive.google.com/file/d/19KEgmMHeC3r_9oNqVn6SYanfH7w6M1c7/preview)
       
   ## Credits
   
