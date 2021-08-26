@@ -1,7 +1,9 @@
+const date = new Date();
+const year = date.getFullYear();
 const liscenses = {
   MIT: `MIT License
 
-    Copyright (c) [${year}] [${name}]
+    Copyright (c) [${year}]
     
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +23,7 @@ const liscenses = {
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.`,
 
-  Apache: `Copyright [${year}] [${name}]
+  Apache: `Copyright [${year}]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -35,7 +37,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.`,
 
-  GNUGPL3: `Copyright (C) [${year}] [${name}]
+  GNUGPL3: `Copyright (C) [${year}]
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

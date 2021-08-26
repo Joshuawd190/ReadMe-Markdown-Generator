@@ -1,4 +1,4 @@
-import liscenses from '../assets/Licenses/Licenses';
+const liscenses = require('../assets/Licenses/Licenses');
 
 function renderLicenseBadge(license) {
   switch (license) {
@@ -17,8 +17,6 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
 function renderLicenseSection(license) {
   switch (license) {
     case 'None':
@@ -36,6 +34,37 @@ function renderLicenseSection(license) {
   }
 }
 
+function renderLink() {
+  data.link
+    ? `${data.link}
+  `
+    : '';
+}
+function renderScreenshot() {
+  data.screenshot
+    ? `![${data.screenshotAlt}](assets/images/${data.screenshotFile})
+    `
+    : '';
+}
+function renderFeatures() {
+  if (data.features) {
+    `## Features
+ 
+  ${data.features}
+  
+ `;
+  }
+}
+function renderContributing() {
+  if (data.confirmContributing) {
+    `## Contributing
+ 
+    [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+  
+ `;
+  }
+}
+
 function generateMarkdown(data) {
   return `# ${data.name}
 
@@ -45,8 +74,7 @@ function generateMarkdown(data) {
   
   ${data.description}
 
-  ${data.link}
-  
+  ${renderLink()}
   ## Table of Contents
   
   * [Installation](#installation)
@@ -63,11 +91,7 @@ function generateMarkdown(data) {
   
   ${data.usage}
 
-  ${() =>
-    data.screenshot
-      ? `![${data.screenshotAlt}](assets/images/${data.screenshotFile})`
-      : ''}
-  
+  ${renderScreenshot()}
   ## Credits
   
   ${data.credits}
@@ -80,24 +104,10 @@ function generateMarkdown(data) {
   
   ${renderLicenseBadge(data.license)}
   
- ${() => {
-   if (data.features) {
-     `## Features
-  
-   ${data.features}
-   
-  `;
-   }
- }} 
- ${() => {
-   if (data.features) {
-     `## Contributing
+  ${renderFeatures()}
+
+  ${renderContributing()}
  
-    [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
-  
- `;
-   }
- }}
   ##Questions
 
     You can reach me here with any questions:

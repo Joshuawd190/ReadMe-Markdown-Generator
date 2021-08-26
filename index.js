@@ -1,9 +1,9 @@
 // TODO: Include packages needed for this application
-import inquirer from 'inquirer';
-import fs from 'fs';
-import { rejects } from 'assert';
-import { resolve } from 'path';
-import generateMarkdown from './utils/generateMarkdown';
+const inquirer = require('inquirer');
+const fs = require('fs');
+// import { rejects } from 'assert';
+// import { resolve } from 'path';
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -97,11 +97,16 @@ const questions = [
     when: ({ screenshot }) => (screenshot ? true : false),
   },
   {
+    type: 'confirm',
+    name: 'creditsConfirm',
+    message: 'Would you like to add credits?',
+    default: true,
+  },
+  {
     type: 'input',
     name: 'credits',
-    message: 'Credits (Required)',
-    validate: (input) =>
-      input ? true : console.log('Please enter credits information'),
+    message: 'Credits',
+    when: ({ creditsConfirm }) => (creditsConfirm ? true : false),
   },
   {
     type: 'list',
@@ -155,6 +160,9 @@ function init() {
     .then((response) => {
       console.log(response);
       console.log('All done! Check /dist folder for your finished file.');
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
 
