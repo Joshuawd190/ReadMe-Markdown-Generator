@@ -34,34 +34,42 @@ function renderLicenseSection(license) {
   }
 }
 
-function renderLink() {
-  data.link
-    ? `${data.link}
-  `
-    : '';
+function renderLink(data) {
+  if (data.link) {
+    return `${data.link}
+  `;
+  } else {
+    return '';
+  }
 }
-function renderScreenshot() {
-  data.screenshot
-    ? `![${data.screenshotAlt}](assets/images/${data.screenshotFile})
-    `
-    : '';
+function renderScreenshot(data) {
+  if (data.screenshot) {
+    return `![${data.screenshotAlt}](assets/images/${data.screenshotFile})
+      `;
+  } else {
+    return '';
+  }
 }
-function renderFeatures() {
+function renderFeatures(data) {
   if (data.features) {
-    `## Features
+    return `## Features
  
   ${data.features}
   
  `;
+  } else {
+    return '';
   }
 }
-function renderContributing() {
+function renderContributing(data) {
   if (data.confirmContributing) {
-    `## Contributing
+    return `## Contributing
  
     [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
   
  `;
+  } else {
+    return '';
   }
 }
 
@@ -74,7 +82,7 @@ function generateMarkdown(data) {
   
   ${data.description}
 
-  ${renderLink()}
+  ${renderLink(data)}
   ## Table of Contents
   
   * [Installation](#installation)
@@ -91,7 +99,7 @@ function generateMarkdown(data) {
   
   ${data.usage}
 
-  ${renderScreenshot()}
+  ${renderScreenshot(data)}
   ## Credits
   
   ${data.credits}
@@ -104,9 +112,9 @@ function generateMarkdown(data) {
   
   ${renderLicenseBadge(data.license)}
   
-  ${renderFeatures()}
+  ${renderFeatures(data)}
 
-  ${renderContributing()}
+  ${renderContributing(data)}
  
   ##Questions
 
