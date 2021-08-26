@@ -16,6 +16,20 @@ const questions = [
   },
   {
     type: 'input',
+    name: 'github',
+    message: 'What is your GitHub username? (Required)',
+    validate: (projectInput) =>
+      projectInput ? true : console.log('Please enter your GitHub username!'),
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'What is your email? (Required)',
+    validate: (projectInput) =>
+      projectInput ? true : console.log('Please enter your email'),
+  },
+  {
+    type: 'input',
     name: 'description',
     message: 'Provide a description of the project (Required)',
     validate: (projectDescInput) =>
@@ -34,6 +48,18 @@ const questions = [
     name: 'link',
     message: 'Provide a link to the deployed application.',
     when: ({ confirmLink }) => (confirmLink ? true : false),
+  },
+  {
+    type: 'confirm',
+    name: 'confirmFeatures',
+    message: 'Would you like to add a features section?',
+    default: true,
+  },
+  {
+    type: 'input',
+    name: 'features',
+    message: 'Provide a description of your features.',
+    when: ({ confirmFeatures }) => (confirmFeatures ? true : false),
   },
   {
     type: 'input',
@@ -81,7 +107,25 @@ const questions = [
     type: 'list',
     name: 'license',
     message: 'Choose a license:',
-    choices: ['MIT', 'GNU GPLv3', 'Unlicense', 'Apache License 2.0'],
+    choices: ['None', 'MIT', 'GNU GPLv3', 'Unlicense', 'Apache License 2.0'],
+  },
+  {
+    type: 'confirm',
+    name: 'confirmContributing',
+    message: 'Would you like to add a Contributing section?',
+    default: true,
+  },
+  {
+    type: 'confirm',
+    name: 'confirmFeatures',
+    message: 'Would you like to add a features section?',
+    default: true,
+  },
+  {
+    type: 'input',
+    name: 'features',
+    message: 'Provide a description of your features.',
+    when: ({ confirmFeatures }) => (confirmFeatures ? true : false),
   },
 ];
 
