@@ -21,7 +21,7 @@ To install this application, download or clone the code from the repository and 
 
 Run node index in the CLI and then answer the questions to generate a readme file
 
-![app demo](assets/images/readmescreenshot)
+![app demo](./assets/images/readmescreenshot)
 
   <iframe src="https://drive.google.com/file/d/19KEgmMHeC3r_9oNqVn6SYanfH7w6M1c7/preview" width="640" height="480"></iframe>
       
