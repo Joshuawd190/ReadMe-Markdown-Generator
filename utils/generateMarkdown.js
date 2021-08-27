@@ -125,7 +125,7 @@ function generateMarkdown(data) {
 
   ${renderContributing(data)}
  
-##Questions
+## Questions
 
 You can reach me here with any questions:
 https://github.com/${data.github}
